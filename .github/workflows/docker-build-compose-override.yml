@@ -23,6 +23,17 @@ jobs:
         with:
           ref: compose-override-editor
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build:frontend
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
